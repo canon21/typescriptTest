@@ -80,3 +80,20 @@ const printPost = (postToPrint) => {
 const printPost2 = (postToPrint:  {title: string, daysOld: number, published: boolean}) => {
     return `Title: ${postToPrint.title} - DaysOld: ${postToPrint.daysOld}`;
 }
+
+// *********************************************** INTERFACE **************************************************************
+//Nuovo type per gli object di tipo Post. In pratica con le interface è possibile dichiarare un nuovo tipo che ha quella forma.
+interface Post {
+    title: string;
+    daysOld: number;
+    published: boolean;
+}
+
+const printPostWithInterfaceTypePost = (postToPrint: Post) => {
+    return `Title: ${postToPrint.title} - DaysOld: ${postToPrint.daysOld}`;
+}
+
+//printPostWithInterfaceTypePost("1"); //errore.
+printPostWithInterfaceTypePost(post);
+
+//Dietro le scene typescript controllerà tutte le property e il loro type. Se non matchano allora restituisce un errore.
