@@ -145,3 +145,54 @@ myCar.year = 2021;
 //Instanza con costruttore
 
 const myCar2 = new Car('red',2021); // -> così le property vengono inizializzate nel costruttore.
+
+
+// *********************************************** PRIVATE AND PUBLIC **************************************************************
+// Stessa logica java. In mancanza del modificatore di accesso di default è public.
+class AnotherCar {
+
+    public color: string;
+    private year: number;
+
+
+    constructor(color: string, year: number) {
+        this.color = color;
+        this.year = year;
+    }
+
+    drive(){
+        console.log("Vroom");
+    }
+}
+
+const anotherCar = new AnotherCar('red',2001);
+
+console.log(anotherCar.color); //OK
+//console.log(anotherCar.year); //NOT OK
+
+// *********************************************** SHORT CLASS **************************************************************
+//Questa classe è del tutto equivalente a quella precedente ma vengono usati degli shortcut di typescritp.
+
+class SmartAnotherCar {
+ /*
+    public color: string;
+    private year: number;
+
+
+    constructor(color: string, year: number) {
+        this.color = color;
+        this.year = year;
+    }
+    */
+
+    //Così in automatico verrà fatto quello che è stato commentato sopra. Molto meno codice.
+    constructor(public color: string, private year: number) {}
+
+    drive(){
+        console.log("Vroom");
+    }
+}
+
+const smartAnotherCar = new SmartAnotherCar('red',2001);
+
+console.log(smartAnotherCar.color);
