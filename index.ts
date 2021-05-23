@@ -45,3 +45,38 @@ const add2 = (a: number, b: number): number => {
 function joinString (a: string, b: string): string {
     return a + b;
 }
+
+// *********************************************** OBJECT **************************************************************
+/* Dando il tipo object typeScript a tempo di compilazione ci avvisa di alcuni errori come la chiamata di un metodo o 
+accesso ad una variabile non esistente nell'oggetto. */
+
+const post = {
+    title: "news",
+    daysOld: 10,
+    published: true
+};
+
+//Se si vuole dichiare un oggetto esplicitamente.
+
+let postExplicity : { title: string, daysOld: number, published: boolean};
+
+//possiamo anche fare un assegnazione
+
+const postExplicity2 : { title: string, daysOld: number, published: boolean} = {
+    title: "news",
+    daysOld: 10,
+    published: true
+};
+
+//oggetto argomento di una function -> backtick  = alt+96
+
+//In questo caso postToPrint è dichiarato come any. Gli oggetti sono sempre any.
+const printPost = (postToPrint) => {
+    return `Title: ${postToPrint.title} - DaysOld: ${postToPrint.daysOld}`;
+}
+
+//Ma se vogliamo specificare la forma dell'object. Solitamente non utilizzato perchè è trpp lunga la sintassi.
+// si preferisce usare l'interface.
+const printPost2 = (postToPrint:  {title: string, daysOld: number, published: boolean}) => {
+    return `Title: ${postToPrint.title} - DaysOld: ${postToPrint.daysOld}`;
+}
