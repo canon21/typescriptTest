@@ -196,3 +196,5 @@ class SmartAnotherCar {
 const smartAnotherCar = new SmartAnotherCar('red',2001);
 
 console.log(smartAnotherCar.color);
+
+// *********************************************** DECORATORS ********************************************************
