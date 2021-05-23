@@ -97,3 +97,51 @@ const printPostWithInterfaceTypePost = (postToPrint: Post) => {
 printPostWithInterfaceTypePost(post);
 
 //Dietro le scene typescript controllerà tutte le property e il loro type. Se non matchano allora restituisce un errore.
+
+// *********************************************** CLASSES **************************************************************
+//SIMILI A JAVA.
+
+class Car {
+
+    color: string;
+    year: number;
+
+    constructor ()
+    constructor(color: string, year: number)
+    constructor(color?: string, year?: number) {
+        this.color = color;
+        this.year = year;
+    }
+
+    //possiamo anche non creare un costruttore ed assegnare alla variabili direttamente il valore.
+    // dietro le scene verrà chiamano il costruttore e tutte le proprietà verranno inizializzate all'interno
+    /*Example -> senza costruttore
+    color: 'red'; -> type inference string
+    year: 2001; -> type inference number.
+
+    dietro le scene sarà fatto questo in automatico
+    constructor(){
+        this.color = 'red';
+        this.number = 2001;
+    }
+    */
+
+    drive(){
+        console.log("Vroom");
+    }
+}
+
+const myCar = new Car();
+myCar.drive();
+
+console.log(myCar.color); //Undefined
+console.log(myCar.color); //Undefined
+
+//Assengazione property.
+myCar.color = "blue";
+myCar.year = 2021;
+
+
+//Instanza con costruttore
+
+const myCar2 = new Car('red',2021); // -> così le property vengono inizializzate nel costruttore.
